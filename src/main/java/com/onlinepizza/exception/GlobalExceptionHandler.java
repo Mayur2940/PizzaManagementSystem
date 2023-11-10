@@ -37,4 +37,9 @@ public class GlobalExceptionHandler {
 	}
 	
 	
+	@ExceptionHandler(value = PizzaServiceManagementException.class)
+	public ResponseEntity<String> handlePizzaServiceManagementException(PizzaServiceManagementException pizzaServiceManagementException)
+	{
+		return new ResponseEntity<>(pizzaServiceManagementException.getMessage(), HttpStatus.NOT_FOUND);
+	}
 }

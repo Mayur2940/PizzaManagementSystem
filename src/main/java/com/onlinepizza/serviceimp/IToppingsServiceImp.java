@@ -9,36 +9,31 @@ import com.onlinepizza.repository.ToppingsRepository;
 import com.onlinepizza.service.IToppingsService;
 
 @Service
-public class IToppingsServiceImp implements IToppingsService{
+public class IToppingsServiceImp implements IToppingsService {
 
 	@Autowired
 	ToppingsRepository toppingsRepository;
-	
-	@Override
+
+
 	public String addToppings(Toppings topping) throws PizzaToppingsManagementException {
-		if (toppingsRepository.save(topping)==null) {
-	        throw new PizzaToppingsManagementException("Invalid Toppings: Toppings object or required fields are null");
-	    }
-		else 
-			
-		toppingsRepository.save(topping);
-		return "Toppings added";
-	}
-	@Override
-	public String deleteToppingsById(Integer toppingsId) throws PizzaToppingsManagementException
-	{
-		if(toppingsRepository.findById(toppingsId).isEmpty())
+		Toppings savedTopping = toppingsRepository.save(topping);
+		if (savedTopping == null || savedTopping.getToppingsId() == null)
 		{
-			throw new PizzaToppingsManagementException ("Toppings not found");
-		}
-		else 
-			
-		toppingsRepository.deleteById(toppingsId);
+			throw new PizzaToppingsManagementException("Invalid Toppings: Toppings not saved properly");
+		} else 
+		
+			return "Toppings added";
+		
+	}
+
+	@Override
+	public String deleteToppingsById(Integer toppingsId) throws PizzaToppingsManagementException {
+		if (toppingsRepository.findById(toppingsId).isEmpty()) {
+			throw new PizzaToppingsManagementException("Toppings not found");
+		} else
+
+			toppingsRepository.deleteById(toppingsId);
 		return "Toppings Removed Successfully";
 	}
-
-	
-
-	
 
 }

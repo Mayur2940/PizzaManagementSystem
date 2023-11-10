@@ -5,7 +5,7 @@ import com.onlinepizza.exception.PizzaToppingsManagementException;
 
 
 public interface IToppingsService {
-	String addToppings(Toppings topping);
+	String addToppings(Toppings topping) throws PizzaToppingsManagementException;
 	String deleteToppingsById(Integer toppingsId) throws PizzaToppingsManagementException;
 
 }

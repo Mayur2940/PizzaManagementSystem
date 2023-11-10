@@ -20,7 +20,7 @@ public class IToppingsController {
 	IToppingsServiceImp iToppingsServiceImp;
 	
 	@PostMapping("/add")
-	public String addToppings(@RequestBody Toppings topping) {
+	public String addToppings(@RequestBody Toppings topping) throws PizzaToppingsManagementException {
 		return iToppingsServiceImp.addToppings(topping);
 		
 	}

@@ -15,6 +15,7 @@ import com.onlinepizza.dto.PizzaDTO;
 import com.onlinepizza.entity.Pizza;
 import com.onlinepizza.entity.PizzaType;
 import com.onlinepizza.entity.Toppings;
+import com.onlinepizza.exception.PizzaServiceManagementException;
 import com.onlinepizza.service.IPizzaService;
 import com.onlinepizza.serviceimp.IPizzaServiceImp;
 
@@ -50,13 +51,13 @@ public class IPizzaServiceController {
 	}
 	
 	@GetMapping("/viewpizzabyid/{pizzaid}")
-	public Pizza viewPizzaById(@PathVariable("pizzaid") Integer pizzaId) {
+	public Pizza viewPizzaById(@PathVariable("pizzaid") Integer pizzaId) throws PizzaServiceManagementException {
 		return iPizzaServiceImp.viewPizzaById(pizzaId);
 		
 	}
 	
 	@GetMapping("/viewbyptype/{pizzatype}")
-	public List<Pizza> viewPizzaByPizzaType(@PathVariable("pizzatype") String pizzaType){
+	public List<Pizza> viewPizzaByPizzaType(@PathVariable("pizzatype") String pizzaType) throws PizzaServiceManagementException{
 		return iPizzaServiceImp.viewPizzaByPizzaType(pizzaType);
 		
 	}
@@ -88,7 +89,7 @@ public class IPizzaServiceController {
 	
 	
 	@GetMapping("/viewtbyid/{tid}")
-	public Toppings viewToppingByID(@PathVariable ("tid") Integer toppingsID) {
+	public Toppings viewToppingByID(@PathVariable ("tid") Integer toppingsID) throws PizzaServiceManagementException {
 		return iPizzaServiceImp.viewToppingByID(toppingsID);
 		
 	}

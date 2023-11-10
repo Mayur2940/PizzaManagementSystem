@@ -8,6 +8,7 @@ import com.onlinepizza.dto.ToppingsDTO;
 import com.onlinepizza.entity.Pizza;
 import com.onlinepizza.entity.PizzaType;
 import com.onlinepizza.entity.Toppings;
+import com.onlinepizza.exception.PizzaServiceManagementException;
 
 public interface IPizzaService { // all methods implemented
 	Pizza addPizza(Pizza pizza);  //done
@@ -18,9 +19,9 @@ public interface IPizzaService { // all methods implemented
 
 	Pizza updatePizza(Pizza pizza); // done
 
-	Pizza viewPizzaById(Integer pizzaId); //done
+	Pizza viewPizzaById(Integer pizzaId) throws PizzaServiceManagementException; //done
 
-	List<Pizza> viewPizzaByPizzaType(String pizzaType); //
+	List<Pizza> viewPizzaByPizzaType(String pizzaType) throws PizzaServiceManagementException; //
 
 	List<Pizza> viewPizzaByPizzaSize(String pizzaSize); //
 
@@ -30,7 +31,7 @@ public interface IPizzaService { // all methods implemented
 
 	List<Toppings> viewToppings();
 
-	Toppings viewToppingByID(Integer toppingsID);
+	Toppings viewToppingByID(Integer toppingsID) throws PizzaServiceManagementException;
 
 	PizzaType viewPizzaTypeById(Integer pizzaTypeId);
 

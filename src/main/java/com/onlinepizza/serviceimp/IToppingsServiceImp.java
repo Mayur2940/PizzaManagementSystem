@@ -15,8 +15,12 @@ public class IToppingsServiceImp implements IToppingsService{
 	ToppingsRepository toppingsRepository;
 	
 	@Override
-	public String addToppings(Toppings topping) {
-		
+	public String addToppings(Toppings topping) throws PizzaToppingsManagementException {
+		if (toppingsRepository.save(topping)==null) {
+	        throw new PizzaToppingsManagementException("Invalid Toppings: Toppings object or required fields are null");
+	    }
+		else 
+			
 		toppingsRepository.save(topping);
 		return "Toppings added";
 	}

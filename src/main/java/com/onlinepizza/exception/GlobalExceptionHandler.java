@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+	
 	@ExceptionHandler(value=UserManagementException.class)
 	public ResponseEntity<String> handleUserManagementException(UserManagementException userManagementException){
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(userManagementException.getMessage());		
@@ -27,6 +28,12 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<String> handlePizzaTypeManagementException(PizzaTypeManagementException pizzaTypeManagementException)
 	{
 		return new ResponseEntity<>(pizzaTypeManagementException.getMessage(), HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(value = PizzaToppingsManagementException.class)
+	public ResponseEntity<String> handlePizzaToppingsManagementException(PizzaToppingsManagementException pizzaToppingsManagementException)
+	{
+		return new ResponseEntity<>(pizzaToppingsManagementException.getMessage(), HttpStatus.NOT_FOUND);
 	}
 	
 	

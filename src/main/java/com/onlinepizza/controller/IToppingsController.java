@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onlinepizza.entity.Toppings;
+import com.onlinepizza.exception.PizzaToppingsManagementException;
 import com.onlinepizza.serviceimp.IToppingsServiceImp;
 
 @RestController
@@ -25,7 +26,7 @@ public class IToppingsController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public String deleteToppingsById(@PathVariable ("id") Integer toppingsId) {
+	public String deleteToppingsById(@PathVariable ("id") Integer toppingsId) throws PizzaToppingsManagementException {
 		return iToppingsServiceImp.deleteToppingsById(toppingsId);
  
 	}

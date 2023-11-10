@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.onlinepizza.entity.Customer;
+import com.onlinepizza.exception.PizzaCustomerManagementException;
+import com.onlinepizza.exception.PizzaOrderManagementException;
 import com.onlinepizza.repository.CustomerRepository;
 import com.onlinepizza.service.ICustomerService;
 
@@ -35,8 +37,15 @@ public class ICustomerServiceImp implements ICustomerService {
 
 	
 	
-	public Customer viewCustomerByPhone(Long phoneNo) {
-	        return customerRepository.findByCustomerMobile(phoneNo);
+	public Customer viewCustomerByPhone(Long phoneNo) throws PizzaCustomerManagementException{
+		if (customerRepository.findByCustomerMobile(phoneNo) == null) {
+			throw new PizzaCustomerManagementException("Invlaid Phone number");
+		} else {
+			Customer customer = customerRepository.findByCustomerMobile(phoneNo);
+		
+			return customer;
+
+		}	
 	            
 	}
 	
@@ -53,7 +62,12 @@ public class ICustomerServiceImp implements ICustomerService {
 
 	
 	@Override
-	public Customer viewCustomerById(Integer customerId) {
+	public Customer viewCustomerById(Integer customerId) throws PizzaCustomerManagementException{
+		if(customerRepository.findById(customerId)==null)
+		{
+			throw new PizzaCustomerManagementException("invalid customerID");
+		}else 
+			
 		return customerRepository.findById(customerId).get();
 		
 		

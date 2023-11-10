@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onlinepizza.entity.Customer;
+import com.onlinepizza.exception.PizzaCustomerManagementException;
+import com.onlinepizza.exception.PizzaOrderManagementException;
 import com.onlinepizza.serviceimp.ICustomerServiceImp;
 
 @RestController
@@ -34,7 +36,7 @@ public class ICustomerServiceController {
 	}
 	
 	@GetMapping("/viewbyphone/{phoneNo}")
-	public Customer viewCustomerByPhone(@PathVariable ("phoneNo") Long phoneNo) {
+	public Customer viewCustomerByPhone(@PathVariable ("phoneNo") Long phoneNo) throws PizzaCustomerManagementException{
 		return icustomerserviceimp.viewCustomerByPhone(phoneNo);
 		
 	}
@@ -46,7 +48,7 @@ public class ICustomerServiceController {
 	}
 	
 	@GetMapping("/viewcbyid/{customerId}")
-	public Customer viewCustomerById(@PathVariable ("customerId") Integer customerId) {
+	public Customer viewCustomerById(@PathVariable ("customerId") Integer customerId) throws PizzaCustomerManagementException{
 		return icustomerserviceimp.viewCustomerById(customerId);
 		
 	}

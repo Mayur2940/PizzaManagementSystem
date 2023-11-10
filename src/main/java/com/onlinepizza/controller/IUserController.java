@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.onlinepizza.dto.UserDTO;
 import com.onlinepizza.entity.User;
+import com.onlinepizza.exception.UserManagementException;
 import com.onlinepizza.serviceimp.IUserServiceImp;
 
 @RestController
@@ -20,13 +21,13 @@ public class IUserController {
 	IUserServiceImp iUserServiceImp;
 	
 	@PostMapping("/reguser")
-	public UserDTO registerUser(@RequestBody User user) {
+	public UserDTO registerUser(@RequestBody User user) throws UserManagementException{
 		return iUserServiceImp.registerUser(user);
 		
 	}
 	
 	@GetMapping("/signin/{userName}/{password}")
-	public UserDTO signIn(@PathVariable ("userName") String userName, @PathVariable ("password")String password) {
+	public UserDTO signIn(@PathVariable ("userName") String userName, @PathVariable ("password")String password) throws UserManagementException {
 		return iUserServiceImp.signIn(userName, password);
 		
 	}

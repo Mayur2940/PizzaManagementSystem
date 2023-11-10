@@ -25,7 +25,7 @@ public class PizzaType {
 	private Integer pizzaTypeId;
 	// Veg or Non-Veg
 	private String pizzaType;
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany
 	private List<Toppings> toppings;
 	
 	

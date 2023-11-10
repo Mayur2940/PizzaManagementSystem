@@ -39,11 +39,9 @@ public class Pizza {
 	
 	@Enumerated(EnumType.STRING)
 	private PizzaSize pizzaSize;
-	
-	@OneToOne
-//	@JoinColumn(name = "pizzaId")
-	private Toppings toppings;
-	
+	/*
+	 * @OneToOne // @JoinColumn(name = "pizzaId") private Toppings toppings;
+	 */
 	
 	
 	

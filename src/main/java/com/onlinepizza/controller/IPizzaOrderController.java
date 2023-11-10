@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -57,14 +58,14 @@ public class IPizzaOrderController {
 	}
 
 	@GetMapping("/viewbydates/{startDate}/{endDate}")
-	public 	List<PizzaOrder> viewPizzaOrderByStartAndEndDate(@PathVariable("startDate") LocalDate startDate, @PathVariable ("endDate") LocalDate endDate){
+	public 	List<PizzaOrder> viewPizzaOrderByStartAndEndDate(@PathVariable("startDate")@DateTimeFormat(pattern = "yyyy-MM-dd")  LocalDate startDate, @PathVariable ("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate){
 		return ipizzaorderservice.viewPizzaOrderByStartAndEndDate(startDate, endDate);
 		
 	}
 
 	
 	@GetMapping("/viewpbyldate/{date}")
-	public 	List<PizzaOrder> viewPizzaOrderByDate(@PathVariable LocalDate date){
+	public 	List<PizzaOrder> viewPizzaOrderByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date){
 		return ipizzaorderservice.viewPizzaOrderByDate(date);
 		
 	}

@@ -13,13 +13,21 @@ public class GlobalExceptionHandler {
 	}
 	
 	@ExceptionHandler(value=PizzaCustomerManagementException.class)
-	public ResponseEntity<String> handlePassengerManagementException(PizzaCustomerManagementException pizzaCustomerManagementException){
+	public ResponseEntity<String> handlePizzaCustomerManagementException(PizzaCustomerManagementException pizzaCustomerManagementException){
 		return new ResponseEntity<>(pizzaCustomerManagementException.getMessage(),HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(value = PizzaOrderManagementException.class)
-	public ResponseEntity<String> handlePassengerManagementException(PizzaOrderManagementException pizzaOrderManagementException)
+	public ResponseEntity<String> handlePizzaOrderManagementException(PizzaOrderManagementException pizzaOrderManagementException)
 	{
 		return new ResponseEntity<>(pizzaOrderManagementException.getMessage(),HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(value = PizzaTypeManagementException.class)
+	public ResponseEntity<String> handlePizzaTypeManagementException(PizzaTypeManagementException pizzaTypeManagementException)
+	{
+		return new ResponseEntity<>(pizzaTypeManagementException.getMessage(), HttpStatus.NOT_FOUND);
+	}
+	
+	
 }

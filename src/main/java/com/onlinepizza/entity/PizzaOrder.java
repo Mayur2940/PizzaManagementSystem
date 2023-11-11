@@ -13,6 +13,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.CreatedDate;
 
@@ -35,13 +38,21 @@ public class PizzaOrder {
 	
 //	@Temporal(TemporalType.DATE)
 	@CreatedDate
+	@NotBlank(message="")
 	private LocalDateTime dateTimeOfOrder;
+	
 	private Integer quantity;
+	
 	private Double totalCost;
+	
     @OneToMany
+    
 	private List<Pizza> pizzaList;
 	@OneToOne
+	@Valid
 	private Customer customer;
+	
+	@NotNull
 	private PizzaStatus status;  //  
 	
 	

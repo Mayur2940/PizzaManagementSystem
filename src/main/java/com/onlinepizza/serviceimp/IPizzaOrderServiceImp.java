@@ -36,6 +36,7 @@ public class IPizzaOrderServiceImp implements IPizzaOrderService {
 		object.setQuantity(pizzaOrder.getQuantity());
 		object.setStatus(pizzaOrder.getStatus());
 		object.setTotalCost(pizzaOrder.getTotalCost());
+		pizzaOrderRepository.save(object);
 
 		return object;
 	}

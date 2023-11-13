@@ -3,6 +3,8 @@ package com.onlinepizza.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,7 +28,7 @@ public class IPizzaOrderController {
 	IPizzaOrderService ipizzaorderservice;
 	
 	@PostMapping("/porder")
-	public PizzaOrder bookPizzaOrder(@RequestBody PizzaOrder order) {
+	public PizzaOrder bookPizzaOrder(@Valid @RequestBody PizzaOrder order) {
 		
 		return ipizzaorderservice.bookPizzaOrder(order);
 		

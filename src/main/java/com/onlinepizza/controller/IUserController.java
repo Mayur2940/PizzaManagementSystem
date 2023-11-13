@@ -1,5 +1,7 @@
 package com.onlinepizza.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +23,7 @@ public class IUserController {
 	IUserServiceImp iUserServiceImp;
 	
 	@PostMapping("/reguser")
-	public UserDTO registerUser(@RequestBody User user) throws UserManagementException{
+	public UserDTO registerUser(@Valid @RequestBody User user) throws UserManagementException{
 		return iUserServiceImp.registerUser(user);
 		
 	}

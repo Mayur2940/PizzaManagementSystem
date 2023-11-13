@@ -46,7 +46,7 @@ public class User {
 	@Email
 	private String email;
 	
-	@NotBlank(message = "City should Not be blank ")
+	@NotBlank(message = "City should not be blank")
 	private String city;
 	
 	// Admin, Customer

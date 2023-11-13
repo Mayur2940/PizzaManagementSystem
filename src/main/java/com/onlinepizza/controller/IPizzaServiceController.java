@@ -2,21 +2,21 @@ package com.onlinepizza.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.onlinepizza.dto.PizzaDTO;
 import com.onlinepizza.entity.Pizza;
 import com.onlinepizza.entity.PizzaType;
 import com.onlinepizza.entity.Toppings;
 import com.onlinepizza.exception.PizzaServiceManagementException;
-import com.onlinepizza.service.IPizzaService;
 import com.onlinepizza.serviceimp.IPizzaServiceImp;
 
 @RestController
@@ -27,7 +27,7 @@ public class IPizzaServiceController {
 	private IPizzaServiceImp iPizzaServiceImp;
 	
 	@PostMapping("/addpizza")
-	public Pizza addPizza(@RequestBody Pizza pizza) {
+	public Pizza addPizza(@Valid @RequestBody Pizza pizza) {
 		return iPizzaServiceImp.addPizza(pizza);
 		
 	}
@@ -35,16 +35,16 @@ public class IPizzaServiceController {
 	
 	
 	@PostMapping("/addtoppings")
-	public Toppings addToppings( @RequestBody  Toppings toppings) {
+	public Toppings addToppings(@Valid @RequestBody  Toppings toppings) {
 		return iPizzaServiceImp.addToppings(toppings);  
 	}
 	
 	@PostMapping("/addpizzatype")
-	public PizzaType addPizzaType(@RequestBody PizzaType pizzaType) {
+	public PizzaType addPizzaType(@Valid @RequestBody PizzaType pizzaType) {
 		return iPizzaServiceImp.addPizzaType(pizzaType);
 		
 	}
-	@PostMapping("/updatepizza")
+	@PutMapping("/updatepizza")
 	public Pizza updatePizza(@RequestBody Pizza pizza) {
 		return iPizzaServiceImp.updatePizza(pizza);
 		

@@ -2,6 +2,8 @@ package com.onlinepizza.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,7 @@ public class IPizzaTypeController {
 	IPizzaTypeServiceImp iPizzaTypeServiceImp;
 	
 	@PostMapping("/addpizzatype")
-	public String addPizzaType(@RequestBody PizzaType pizzaType) throws PizzaTypeManagementException{
+	public String addPizzaType(@Valid @RequestBody PizzaType pizzaType) throws PizzaTypeManagementException{
 		return iPizzaTypeServiceImp.addPizzaType(pizzaType);
 		
 	}

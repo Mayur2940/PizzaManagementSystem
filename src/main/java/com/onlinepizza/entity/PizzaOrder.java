@@ -2,7 +2,6 @@ package com.onlinepizza.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,11 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import org.springframework.data.annotation.CreatedDate;
 
@@ -38,21 +35,27 @@ public class PizzaOrder {
 	
 //	@Temporal(TemporalType.DATE)
 	@CreatedDate
-	@NotBlank(message="")
+	@NotNull(message = "Date and time of order cannot be null")
 	private LocalDateTime dateTimeOfOrder;
 	
-	private Integer quantity;
+	@NotNull(message = "Quantity cannot be null")
+    @Positive(message = "Quantity must be a positive value")
+    private Integer quantity;
 	
+	@NotNull(message = "Total cost cannot be null")
+    @Positive(message = "Total cost must be a positive value")
 	private Double totalCost;
 	
     @OneToMany
+    private List<Pizza> pizzaList;
     
-	private List<Pizza> pizzaList;
+    
 	@OneToOne
 	@Valid
+    @NotNull(message = "Customer cannot be null")
 	private Customer customer;
 	
-	@NotNull
+	@NotNull(message = "Status cannot be null")
 	private PizzaStatus status;  //  
 	
 	

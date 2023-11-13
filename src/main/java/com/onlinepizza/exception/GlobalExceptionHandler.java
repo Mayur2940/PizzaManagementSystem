@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 	
 	@ExceptionHandler(value=UserManagementException.class)
-	public ResponseEntity<String> handleUserManagementException(UserManagementException userManagementException){
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(userManagementException.getMessage());		
+	public ResponseEntity<String> handleUserManagementException(UserManagementException userManagementException)
+	{
+		return new ResponseEntity<>(userManagementException.getMessage(),HttpStatus.NOT_FOUND);	
 	}
 	
 	@ExceptionHandler(value=PizzaCustomerManagementException.class)
-	public ResponseEntity<String> handlePizzaCustomerManagementException(PizzaCustomerManagementException pizzaCustomerManagementException){
+	public ResponseEntity<String> handlePizzaCustomerManagementException(PizzaCustomerManagementException pizzaCustomerManagementException)
+	{
 		return new ResponseEntity<>(pizzaCustomerManagementException.getMessage(),HttpStatus.NOT_FOUND);
 	}
 	

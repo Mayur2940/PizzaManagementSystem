@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.onlinepizza.entity.Customer;
 import com.onlinepizza.exception.PizzaCustomerManagementException;
-import com.onlinepizza.exception.PizzaOrderManagementException;
 import com.onlinepizza.serviceimp.ICustomerServiceImp;
 
 @RestController

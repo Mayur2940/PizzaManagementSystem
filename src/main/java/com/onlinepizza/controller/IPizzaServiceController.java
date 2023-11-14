@@ -32,8 +32,6 @@ public class IPizzaServiceController {
 		
 	}
 	
-	
-	
 	@PostMapping("/addtoppings")
 	public Toppings addToppings(@Valid @RequestBody  Toppings toppings) {
 		return iPizzaServiceImp.addToppings(toppings);  

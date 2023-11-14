@@ -41,11 +41,6 @@ public class PizzaUnitTest {
     @InjectMocks
     private IPizzaServiceImp pizzaService;
 
-//    @BeforeEach
-//    void setUp() {
-//        MockitoAnnotations.initMocks(this);
-    
-
     @Test
     void testAddPizza() {
         Pizza pizza = new Pizza();

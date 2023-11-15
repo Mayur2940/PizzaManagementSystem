@@ -21,12 +21,13 @@ public class Toppings {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer toppingsId;
 	
-	@NotBlank(message = "Toppings name cannot be blank")
+//	@NotBlank(message = "Toppings name cannot be blank")
 	private String toppingsName;
 	
-	@NotNull(message = "Price cannot be null")
+//	@NotNull(message = "Price cannot be null")
     @Positive(message = "Price must be a positive value")
 	private Double price;
+	
 //	@OneToOne(mappedBy = "toppings")
 //	private Pizza pizza;
 	

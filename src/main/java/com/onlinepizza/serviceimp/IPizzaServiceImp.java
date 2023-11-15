@@ -38,12 +38,9 @@ public class IPizzaServiceImp implements IPizzaService { // all methods implemen
 
 
 	public Toppings addToppings(Toppings toppings) {
-		Toppings newToppings = new Toppings();
-		newToppings.setToppingsId(toppings.getToppingsId());
-		newToppings.setToppingsName(toppings.getToppingsName());
-		newToppings.setPrice(toppings.getPrice());
-		toppingsRepository.save(newToppings);
-		return newToppings;
+		
+		
+		return toppingsRepository.save(toppings);
 
 	}
 
@@ -63,15 +60,16 @@ public class IPizzaServiceImp implements IPizzaService { // all methods implemen
 	
 	public Pizza updatePizza(Pizza pizza) {
 
-		Pizza updatePizza = new Pizza();
-		updatePizza.setPizzaCost(pizza.getPizzaCost());
-		updatePizza.setPizzaDescription(pizza.getPizzaDescription());
-		updatePizza.setPizzaId(pizza.getPizzaId());
-		updatePizza.setPizzaSize(pizza.getPizzaSize());
-		updatePizza.setPizzaName(pizza.getPizzaName());
-		//updatePizza.setPizzaType(pizza.getPizzaType());
+//		Pizza updatePizza = new Pizza();
+//		updatePizza.setPizzaCost(pizza.getPizzaCost());
+//		updatePizza.setPizzaDescription(pizza.getPizzaDescription());
+//		updatePizza.setPizzaId(pizza.getPizzaId());
+//		updatePizza.setPizzaSize(pizza.getPizzaSize());
+//		updatePizza.setPizzaName(pizza.getPizzaName());
+//		//updatePizza.setPizzaType(pizza.getPizzaType());
+		
 
-		return updatePizza;
+		return pizzaRepository.save(pizza);
 	}
 
 	

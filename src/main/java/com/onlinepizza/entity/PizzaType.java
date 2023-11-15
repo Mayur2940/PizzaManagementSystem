@@ -26,13 +26,13 @@ public class PizzaType {
 	private Integer pizzaTypeId;
 	
 	// Veg or Non-Veg
-	@NotBlank(message = "Pizza type cannot be blank")
+//	@NotBlank(message = "Pizza type cannot be blank")
 	private String pizzaType;
 	
 	
 	@OneToMany
 	@Valid
-	@NotNull(message = "Toppings list cannot be null")
+//	@NotNull(message = "Toppings list cannot be null")
 	private List<Toppings> toppings;
 
 }

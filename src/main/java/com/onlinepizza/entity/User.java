@@ -42,6 +42,7 @@ public class User {
 	@NotNull(message = "Mobile number should be empty" )
 //	@Pattern(regexp = "^[0-9]{10}")
 	private Long contactNo;
+	
 	@NotBlank(message = "Email must not be blank")
 	@Email
 	private String email;

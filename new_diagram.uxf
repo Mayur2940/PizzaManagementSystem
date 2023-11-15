@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>0</y>
+      <w>190</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>com.onlinepizza.entity::User
+--
+-userId: Integer
+-userName: //	@Min(value = 5,message = "Username should be minimum length 5")&#13;
+String
+-password: //	@Min(value = 5,message = "")&#13;
+String
+-contactNo: //	@Pattern(regexp = "^[0-9]{10}")&#13;
+Long
+-email: String
+-city: String
+-userRole: String
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>270</y>
+      <w>220</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>com.onlinepizza.entity::PizzaOrder
+--
+-bookingOrderId: Integer
+-dateTimeOfOrder: LocalDateTime
+-quantity: Integer
+-totalCost: Double
+-pizzaList: List&lt;Pizza&gt;
+-customer: Customer
+-//  &#13;
+status: PizzaStatus
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>190</y>
+      <w>190</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>com.onlinepizza.entity::Pizza
+--
+-pizzaId: Integer
+-pizzaType: PizzaType
+-pizzaName: String
+-pizzaDescription: String
+-pizzaCost: Double
+-pizzaSize: PizzaSize
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>30</y>
+      <w>220</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>com.onlinepizza.entity::Customer
+--
+-customerMobile: Long
+-customerName: String
+-customerEmail: String
+-customerAddress: String
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>380</y>
+      <w>230</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>com.onlinepizza.entity::PizzaType
+--
+-pizzaTypeId: Integer
+-pizzaType: String
+-toppings: List&lt;Toppings&gt;
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>250</y>
+      <w>220</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>com.onlinepizza.entity::Toppings
+--
+-toppingsId: Integer
+-toppingsName: String
+-price: Double
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>80</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>extends</panel_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>140</y>
+      <w>70</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>has a</panel_attributes>
+    <additional_attributes>20.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>320</y>
+      <w>110</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>has a</panel_attributes>
+    <additional_attributes>90.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>320</y>
+      <w>70</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>has a</panel_attributes>
+    <additional_attributes>20.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>70</x>
+      <y>350</y>
+      <w>140</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>has a</panel_attributes>
+    <additional_attributes>120.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
